@@ -15,6 +15,8 @@ Sistema de gerenciamento de conteúdo fornecendo os dados através de API.
 ## Features já operacionais
 
  - Calmaaa lá...
+   <br>
+   <img height="80px" src="https://raw.githubusercontent.com/Fincao/cms/main/giphy-3.gif.webp"/>
 
 <br>
 
@@ -37,4 +39,5 @@ Sistema de gerenciamento de conteúdo fornecendo os dados através de API.
  - implementação de campo **wysiwyg**.
  - Upload de arquivos/mídias.
  - Autenticação para acesso a API.
+ - Desabilitar execução de scripts no diretorio de upload.
 
