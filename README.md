@@ -2,7 +2,7 @@
 
 Sistema de gerenciamento de conteúdo fornecendo os dados através de API.
 
-<br>
+#### 🛠 &nbsp;Tecs : 
 
 ![PHP](https://img.shields.io/badge/-PHP-05122A?style=flat&logo=php)&nbsp;
 ![MySQL](https://img.shields.io/badge/-MySQL-05122A?style=flat&logo=mysql)&nbsp;
@@ -14,7 +14,7 @@ Sistema de gerenciamento de conteúdo fornecendo os dados através de API.
 
 ## Features já operacionais
 
- - Calmaaa lá...
+ - Calma lá meu patrão...
    <br>
    <img height="80px" src="https://raw.githubusercontent.com/Fincao/cms/main/giphy-3.gif.webp"/>
 
