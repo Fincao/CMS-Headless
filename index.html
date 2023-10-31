@@ -110,7 +110,7 @@
         <div class="col d-md-flex align-self-center justify-content-md-center align-items-md-center">
             <div class="row d-sm-flex" style="margin-top: 20px;margin-bottom: 20px;">
                 <div class="col" style="margin-right: 25px;margin-left: 25px;"><img class="d-xl-flex justify-content-xl-start" data-bs-toggle="tooltip" data-bss-tooltip="" src="assets/img/logo_like.svg" style="margin-bottom: 50px;width: 100px;max-height: 40px;max-width: 130px;text-align: left;height: 40px;" title="Olá">
-                    <div class="alert alert-danger fs-6 fw-lighter alert-dismissible" role="alert" id="alerta-erro-login" style="padding-top: 10px;padding-bottom: 10px;display: none;"><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="alert" style="padding-top: 10px;padding-bottom: 20px;"></button><span><strong>Login invalido</strong></span></div>
+                    <div class="alert alert-danger fs-6 fw-lighter alert-dismissible" role="alert" id="alerta-erro-login" style="padding-top: 10px;padding-bottom: 10px;display: none;"><span><strong>Login invalido</strong></span></div>
                     <p style="font-size: 14px;font-family: nunito;margin-bottom: 10px;">Nome de usuário ou endereço de e-mail</p><input type="text" id="input-user" placeholder="Usuário" name="user" style="width: 100%;padding: 4px 2px;padding-right: 6px;padding-left: 6px;border-radius: 3;border-top-left-radius: 4px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;border-bottom-left-radius: 4px;border: 1px solid var(--bs-gray-400);" autofocus="" autocomplete="on">
                     <p style="font-size: 14px;font-family: nunito;margin-bottom: 10px;margin-top: 10px;">Senha</p><input type="password" id="input-pass" style="width: 100%;border-radius: 3px 3px 3px;border-top-left-radius: 4px;border: 1px solid var(--bs-gray-400);padding: 4px 2px;padding-right: 6px;padding-left: 6px;" placeholder="Senha" name="pass"><button class="btn btn-primary" id="btn-log-in" type="button" style="width: 100%;font-size: 14px;padding: 9px 12px;margin-top: 20px;margin-bottom: 15px;">Acessar</button><a href="#" style="margin: 5px;margin-top: 0px;font-size: 14px;display: block;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-lock">
                             <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path>
@@ -124,6 +124,24 @@
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
+
+    <script>
+        // Adicione um evento de clique ao botão com o ID "btn-log-in"
+        document.getElementById("btn-log-in").addEventListener("click", function () {
+            // Verifica se os campos de usuário e senha estão vazios
+            var usuario = document.getElementById("input-user").value;
+            var senha = document.getElementById("input-pass").value;
+        
+            if (usuario == "" || senha == "") {
+                // Os campos estão vazios, então exibe a mensagem de erro
+                document.getElementById("alerta-erro-login").style.display = "block";
+            } else {
+                // Os campos não estão vazios, então oculta a mensagem de erro (caso esteja visível)
+                document.getElementById("alerta-erro-login").style.display = "none";
+            }
+        });
+        </script>
+
 </body>
 
 </html>
