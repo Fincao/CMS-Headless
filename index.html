@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html data-bs-theme="auto" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login</title>
+    <meta name="twitter:image" content="assets/img/og-cms.jpg">
+    <meta property="og:image" content="assets/img/og-cms.jpg">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Bem vindo ao painel de controle. Gerencie o conteúdo através desse portal.">
+    <meta property="og:title" content="Login CMS">
+    <meta property="og:description" content="Gerencie o conteúdo através desse portal.">
+    <script>
+        (function() {
+
+            // JavaScript snippet handling Dark/Light mode switching
+
+            const getStoredTheme = () => localStorage.getItem('theme');
+            const setStoredTheme = theme => localStorage.setItem('theme', theme);
+            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+
+            const getPreferredTheme = () => {
+
+                if (forcedTheme) return forcedTheme;
+
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                    return storedTheme;
+                }
+
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+
+                if (pageTheme) {
+                    return pageTheme;
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            }
+
+            setTheme(getPreferredTheme());
+
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+
+                if (!themeSwitchers.length) return;
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active');
+                    element.setAttribute('aria-pressed', 'false');
+                });
+
+                for (const themeSwitcher of themeSwitchers) {
+
+                    const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
+
+                    if (btnToActivate) {
+                        btnToActivate.classList.add('active');
+                        btnToActivate.setAttribute('aria-pressed', 'true');
+                    }
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme());
+                }
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const theme = toggle.getAttribute('data-bs-theme-value');
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme);
+                        })
+                    })
+            });
+        })();
+    </script>
+    <link rel="icon" type="image/svg+xml" sizes="236x150" href="assets/img/logo_white.svg">
+    <link rel="icon" type="image/svg+xml" sizes="236x150" href="assets/img/logo_white.svg" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/svg+xml" sizes="236x150" href="assets/img/logo_white.svg">
+    <link rel="icon" type="image/svg+xml" sizes="236x150" href="assets/img/logo_white.svg" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/svg+xml" sizes="236x150" href="assets/img/logo_white.svg">
+    <link rel="icon" type="image/svg+xml" sizes="236x150" href="assets/img/logo_white.svg">
+    <link rel="icon" type="image/svg+xml" sizes="236x150" href="assets/img/logo_white.svg">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/bs-theme-overrides.css">
+    <link rel="stylesheet" href="assets/css/Navbar-Centered-Brand-Dark-icons.css">
+</head>
+
+<body style="font-family: 'Nunito';border-radius: 1px;text-align: left;">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-2 vh-100 vw-100" style="margin-left: 0px;">
+        <div class="col d-md-flex align-self-center justify-content-md-center align-items-md-center">
+            <div class="row d-sm-flex" style="margin-top: 20px;margin-bottom: 20px;">
+                <div class="col" style="margin-right: 25px;margin-left: 25px;"><img class="d-xl-flex justify-content-xl-start" data-bs-toggle="tooltip" data-bss-tooltip="" src="assets/img/logo_like.svg" style="margin-bottom: 50px;width: 100px;max-height: 40px;max-width: 130px;text-align: left;height: 40px;" title="Olá">
+                    <div class="alert alert-danger fs-6 fw-lighter alert-dismissible" role="alert" id="alerta-erro-login" style="padding-top: 10px;padding-bottom: 10px;display: none;"><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="alert" style="padding-top: 10px;padding-bottom: 20px;"></button><span><strong>Login invalido</strong></span></div>
+                    <p style="font-size: 14px;font-family: nunito;margin-bottom: 10px;">Nome de usuário ou endereço de e-mail</p><input type="text" id="input-user" placeholder="Usuário" name="user" style="width: 100%;padding: 4px 2px;padding-right: 6px;padding-left: 6px;border-radius: 3;border-top-left-radius: 4px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;border-bottom-left-radius: 4px;border: 1px solid var(--bs-gray-400);" autofocus="" autocomplete="on">
+                    <p style="font-size: 14px;font-family: nunito;margin-bottom: 10px;margin-top: 10px;">Senha</p><input type="password" id="input-pass" style="width: 100%;border-radius: 3px 3px 3px;border-top-left-radius: 4px;border: 1px solid var(--bs-gray-400);padding: 4px 2px;padding-right: 6px;padding-left: 6px;" placeholder="Senha" name="pass"><button class="btn btn-primary" id="btn-log-in" type="button" style="width: 100%;font-size: 14px;padding: 9px 12px;margin-top: 20px;margin-bottom: 15px;">Acessar</button><a href="#" style="margin: 5px;margin-top: 0px;font-size: 14px;display: block;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-lock">
+                            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path>
+                        </svg>Perdeu a senha?</a><a href="https://github.com/Fincao/CMS-Headless" style="margin: 5px;margin-top: 0px;font-size: 14px;display: block;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-left-short">
+                            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"></path>
+                        </svg>Projeto Github</a>
+                </div>
+            </div>
+        </div>
+        <div class="col d-none d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block" style="background: var(--bs-link-color);"></div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+</body>
+
+</html>
