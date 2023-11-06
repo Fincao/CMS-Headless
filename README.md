@@ -15,7 +15,7 @@ Sistema de gerenciamento de conteúdo fornecendo os dados através de API.
 ## Features já operacionais
 
  - Login page UI
- - Calma lá meu patrão...
+ - Calma lá meu patrão... logo tem mais novidades!
    <br>
    <img height="80px" src="https://raw.githubusercontent.com/Fincao/cms/main/giphy-3.gif.webp"/>
 
